@@ -7,7 +7,7 @@ class Socio {
 	const maximoDeActividades  
 	
 	method esAdoradorDelSol() = actividadesRealizadas.all({ actividad => actividad.sirveParaBroncearse() })
-	method actividadesEsforzadas() = actividadesRealizadas.map({ actividad => actividad.implicaEsfuerzo() })
+	method actividadesEsforzadas() = actividadesRealizadas.filter({ actividad => actividad.implicaEsfuerzo() })
 	method realizarActividad(unaActividad){ 
 		if (actividadesRealizadas.size() < maximoDeActividades){
 			actividadesRealizadas.add(unaActividad)

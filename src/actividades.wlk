@@ -63,7 +63,7 @@ class ClasesDeGimnasia inherits Actividad {
 class TallerLiterario inherits Actividad {
     const libros = []
     
-    override method idiomas() = libros.map({ libro => libro.idioma() })
+    override method idiomas() = libros.map({ libro => libro.idioma() }).asSet()
     override method diasDeActividad() = libros.size() + 1
     override method sirveParaBroncearse() = false
     override method esRecomendadaParaSocio(unSocio) = unSocio.idiomas().size() > 1
