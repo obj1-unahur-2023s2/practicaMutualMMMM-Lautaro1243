@@ -1,0 +1,100 @@
+import actividades.*
+import socios.*
+
+describe "test etapa 1"{
+	const excursionCordoba = new ExcursionACiudad(atraccionesAVisitar=4, idiomas= #{"español","latin"})
+	const excursionRio = new ExcursionACiudadTropical(atraccionesAVisitar=4, idiomas= #{"portugues"})
+	const excursionSalta = new ExcursionACiudad(atraccionesAVisitar=8, idiomas= #{"español","latin"})
+	const excursionQuito = new ExcursionACiudadTropical(atraccionesAVisitar=8, idiomas= #{"español","latin"})
+	const excursionMiame = new ExcursionACiudadTropical(atraccionesAVisitar=10, idiomas= #{"ingles"})
+	const salidaEntreRios = new SalidaDeTrekking(kilometros=100, diasDeSolPorAnio=130, idiomas= #{"español"})
+	
+	
+	test "una excursión a ciudad normal (no tropical) en la que se visitan 4 atracciones, lleva 2 días, no implica esfuerzo"{
+		assert.equals(excursionCordoba.diasDeActividad(), 2)
+		assert.notThat(excursionCordoba.implicaEsfuerzo())
+	}
+	
+	test "una excursión a ciudad normal (no tropical) en la que se visitan 4 atracciones, no sirve para bronciarse"{
+		assert.notThat(excursionCordoba.sirveParaBroncearse())
+	}
+	
+	
+	test "una excursión a ciudad tropical en la que se visitan 4 atracciones, lleva 3 días, no implica esfuerzo"{
+		assert.equals(excursionRio.diasDeActividad(), 3)
+		assert.notThat(excursionRio.implicaEsfuerzo())
+	}
+	
+	test "una excursión a ciudad tropical en la que se visitan 4 atracciones, sirve para broncearse."{
+		assert.that(excursionRio.sirveParaBroncearse())
+	}
+	
+	
+	test "una excursión a ciudad normal (no tropical) en la que se visitan 8 atracciones, lleva 4 días, implica esfuerzo"{
+		assert.equals(excursionSalta.diasDeActividad(), 4)
+		assert.that(excursionSalta.implicaEsfuerzo())
+	}
+	
+	test "una excursión a ciudad normal (no tropical) en la que se visitan 8 atracciones, no sirve para bronciarse"{
+		assert.notThat(excursionSalta.sirveParaBroncearse())
+	}
+	
+	
+	test "una excursión a ciudad tropical en la que se visitan 8 atracciones, lleva 5 días, implica esfuerzo"{
+		assert.equals(excursionQuito.diasDeActividad(), 5)
+		assert.that(excursionQuito.implicaEsfuerzo())
+	}
+	
+	test "una excursión a ciudad tropical en la que se visitan 8 atracciones, sirve para broncearse."{
+		assert.that(excursionQuito.sirveParaBroncearse())
+	}
+	
+	
+	test "una excursión a ciudad tropical en la que se visitan 10 atracciones, lleva 6 días, no implica esfuerzo"{
+		assert.equals(excursionMiame.diasDeActividad(), 6)
+		assert.notThat(excursionMiame.implicaEsfuerzo())
+	}
+	
+	test "una excursión a ciudad tropical en la que se visitan 10 atracciones, sirve para broncearse."{
+		assert.that(excursionMiame.sirveParaBroncearse())
+	}
+	
+	
+	test "una salida de 100 kilómetros a un lugar con 130 días de sol por año: lleva 2 días, implica esfuerzo."{
+		assert.equals(salidaEntreRios.diasDeActividad(), 2)
+		assert.that(salidaEntreRios.implicaEsfuerzo())
+	}
+	
+	
+	test "una salida de 100 kilómetros a un lugar con 130 días de sol por año: no sirve para broncearse."{
+		assert.notThat(salidaEntreRios.sirveParaBroncearse())
+	}
+}
+
+
+describe "test etapa 2"{
+	const excursionParana = new ExcursionACiudad(atraccionesAVisitar=4)
+	const excursionRio = new ExcursionACiudadTropical(atraccionesAVisitar=5)
+	const salidaEntreRios = new SalidaDeTrekking(kilometros=100, diasDeSolPorAnio=130)
+}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
